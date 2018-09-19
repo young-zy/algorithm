@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "xlocale": "cpp",
+        "regex": "cpp",
+        "sstream": "cpp",
+        "random": "cpp",
+        "string": "cpp",
+        "xstring": "cpp",
+        "xiosbase": "cpp",
+        "ostream": "cpp",
+        "chrono": "cpp",
+        "cmath": "cpp",
+        "valarray": "cpp"
+    },
+    "files.encoding": "gb2312",
+    "files.autoGuessEncoding": true,
+    "C_Cpp.intelliSenseEngineFallback": "Enabled"
+}
