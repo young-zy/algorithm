@@ -11,7 +11,8 @@
         "ostream": "cpp",
         "chrono": "cpp",
         "cmath": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "bitset": "cpp"
     },
     "files.encoding": "gb2312",
     "files.autoGuessEncoding": true,
