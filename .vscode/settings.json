@@ -1,20 +1,28 @@
 {
-    "files.associations": {
-        "iostream": "cpp",
-        "xlocale": "cpp",
-        "regex": "cpp",
-        "sstream": "cpp",
-        "random": "cpp",
-        "string": "cpp",
-        "xstring": "cpp",
-        "xiosbase": "cpp",
-        "ostream": "cpp",
-        "chrono": "cpp",
-        "cmath": "cpp",
-        "valarray": "cpp",
-        "bitset": "cpp"
-    },
+
     "files.encoding": "gb2312",
     "files.autoGuessEncoding": true,
-    "C_Cpp.intelliSenseEngineFallback": "Enabled"
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "valarray": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "atomic": "cpp",
+        "utility": "cpp",
+        "istream": "cpp",
+        "optional": "cpp",
+        "ostream": "cpp",
+        "ratio": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "chrono": "cpp",
+        "functional": "cpp",
+        "scoped_allocator": "cpp",
+        "tuple": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp"
+    }
 }

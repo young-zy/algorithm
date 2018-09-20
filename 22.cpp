@@ -5,21 +5,21 @@ using namespace std;
 int checkPrime(int a);
 
 int main(){
-    int input;
-    scanf("%d",&input);
-    if(input == 4){
-        printf("4 = 2 + 2");
-    }
-    if(input == 6){
-        printf("6 = 3 + 3");
-    }
-    for(int i = 3;i < input - 3;i=i+2){
-        int j = input - i;
-        if(checkPrime(i) && checkPrime(j)){
-            printf("%d = %d + %d", input, i, j);
-            return 0;
+    int n, k;
+    scanf("%d %d",&n,&k);
+    int sum = 0;
+    for(int i = n; i >= 2 && k > 0; i--){
+        if(checkPrime(i)){
+            if(sum == 0){
+                printf("%d",i);
+            }else{
+                printf("+%d",i);
+            }
+            sum += i;
+            k--;
         }
     }
+    printf("=%d",sum);
     return 0;
 }
 
