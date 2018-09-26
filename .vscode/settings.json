@@ -23,6 +23,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "*.tcc": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }
