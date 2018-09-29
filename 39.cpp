@@ -17,6 +17,6 @@ int main(){
         i += temp;
     }
     printf("%d",month-3);
-
+    
     return 0;
 }
