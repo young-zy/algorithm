@@ -23,18 +23,11 @@
             "type": "shell",
             "command": "g++",
             "args": [
-<<<<<<< HEAD
                 "-ggdb",
                 "\"${file}\"",
                 "--std=c++11",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\""
-=======
-                "-g",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${fileDirname}\\${fileBasenameNoExtension}.cpp"
->>>>>>> 09dc912c019cc1c353b504cbdee116c1f077ae5b
             ],
             "group": {
                 "kind": "build",

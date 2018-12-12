@@ -14,7 +14,10 @@ int main(){
         }
     }
     flag[1] = 1;
-    
+    while(1){
+        int count = 0;
+        
+    }
 
     return 0;
 }

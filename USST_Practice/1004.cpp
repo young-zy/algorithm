@@ -3,9 +3,8 @@
 using namespace std;
 
 int input;
-string a = "(";
 
-void dfs(int lcount,int rcount){
+void dfs(int lcount,int rcount,string a){
     if(lcount == rcount){
         if(lcount == input){
             cout<<a<<endl;
@@ -13,7 +12,7 @@ void dfs(int lcount,int rcount){
         }
         a+="(";
         lcount++;
-        dfs(lcount,rcount);
+        dfs(lcount,rcount,a);
         return;
     }
     if(lcount > rcount){
@@ -24,17 +23,15 @@ void dfs(int lcount,int rcount){
             cout<<a<<endl;
             return;
         }
-        a+=")";
-        rcount++;
-        dfs(lcount,rcount);
-        a.pop_back();
-        a.pop_back();
+        dfs(lcount,rcount+1,a+")");
+        dfs(lcount+1,rcount,a+"(");
+        return;
     }
 }
 
 int main(){
     cin>>input;
-    dfs(1,0);
+    dfs(1,0,"(");
     
     return 0;
 }
