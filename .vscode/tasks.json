@@ -10,8 +10,8 @@
             "args": [
                 "-g",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${fileBasenameNoExtension}.c"
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "${fileDirname}/${fileBasenameNoExtension}.c"
             ],
             "group": {
                 "kind": "build",
