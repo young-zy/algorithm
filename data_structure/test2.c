@@ -14,6 +14,40 @@ struct node{
     struct node * next;
 };
 
+long long int_pow(long a, int b){
+    long long res = 1;
+    for(int i = 0 ; i < b;i++){
+        res *= a;
+    }
+    return res;
+}
+
+int input(long long * x){
+    long long result = 0;
+    char ch[10000];
+    int i = 0;
+    ch[i] = getchar();
+    while(ch[i] == ' ' || ch[i] == '\n'){
+        ch[i] = getchar();
+    }
+    if(ch[i] <= '0' || ch[i] >= '9'){
+        return 0;
+    }
+    while(ch[i] != ' ' && ch[i] != '\n'){
+        if(ch[i] < '0' || ch[i] > '9'){
+            return 0;
+        }
+        i++;
+        ch[i] = getchar();
+    }
+    i--;
+    for(int j = 0;i>=0;i--,j++){
+        result += (ch[j] - '0') * int_pow(10,i);
+    }
+    *x = result;
+    return 1;
+}
+
 int output(struct node * head){
     struct node *p = head -> next;
     while(p != NULL){
@@ -61,7 +95,10 @@ int main(){
         p-> next = q;
         p = p->next;
         q->data = (struct Data *)malloc(sizeof(struct Data));
-        scanf("%lld",&q->data->x);
+        //scanf("%lld",&q->data->x);
+        while(!input(&q->data->x)){
+            printf("ERROR , PLS ENTER NUMBER AGAIN!\n");
+        }
         q->next = NULL;
     }
     output(head);
