@@ -6,6 +6,8 @@ struct Data{
     long long x;
 };
 
+
+
 struct node * head1;
 struct node * head2;
 
@@ -13,6 +15,10 @@ struct node{
     struct Data * data;
     struct node * next;
 };
+
+void Bubble(struct node *head){
+    
+}
 
 long long int_pow(long a, int b){
     long long res = 1;
@@ -30,7 +36,7 @@ int input(long long * x){
     while(ch[i] == ' ' || ch[i] == '\n'){
         ch[i] = getchar();
     }
-    if(ch[i] <= '0' || ch[i] >= '9'){
+    if(ch[i] < '0' || ch[i] > '9'){
         return 0;
     }
     while(ch[i] != ' ' && ch[i] != '\n'){
@@ -104,8 +110,8 @@ int main(){
     output(head);
     printf("\n");
     seperate(head);
-    output(head1);
-    printf("\n");
     output(head2);
+    printf("\n");
+    output(head1);
     return 0;
 }

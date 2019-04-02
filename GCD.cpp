@@ -29,7 +29,7 @@ int quickgcd(int a,int b){
     }else if(!(a & 1)){
         return quickgcd(a>>1,b);
     }else{
-        return quickgcd(abs(a-b),min(a-b));
+        //return quickgcd(abs(a-b),min(a-b));
     }
 }
 

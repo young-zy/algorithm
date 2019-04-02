@@ -21,7 +21,7 @@ int input(long long * x){
     while(ch[i] == ' ' || ch[i] == '\n'){
         ch[i] = getchar();
     }
-    if(ch[i] <= '0' || ch[i] >= '9'){
+    if(ch[i] < '0' || ch[i] > '9'){
         return 0;
     }
     while(ch[i] != ' ' && ch[i] != '\n'){
@@ -69,14 +69,17 @@ int main(){
         Va[i] = 0x7fffff;
     }
     long n;
-    scanf("%lld",&n);
-    for(long i = 0; i< n ; i++){
-        long long temp;
-        while(!input(&temp)){
-            printf("ERROR , PLS ENTER NUMBER AGAIN!\n");
+    while(n != -1){
+        for(long i = 0; i< n ; i++){
+            long long temp;
+            while(!input(&temp)){
+                printf("ERROR , PLS ENTER NUMBER AGAIN!\n");
+            }
+            insert(temp);
+            output();
         }
-        insert(temp);
-        output();
+        scanf("%lld",&n);
     }
+    
     return 0;
 }
