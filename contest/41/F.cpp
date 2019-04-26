@@ -12,7 +12,7 @@ struct node no[300005];
 
 bool cmp(struct node a,struct node b){
     if(a.a - a.b  ==  b.a -b.b){
-        return a.b > b.b;
+        return a.b < b.b;
     }
     return  a.a - a.b > b.a - b.b;
 }
@@ -40,7 +40,7 @@ int main(){
     }
     sort(no,no+n,cmp);
     long index = 0;
-    while(b && index < n){
+    while(b && (index < n)){
         if(no[index].a > no[index].b){
             b--;
             res += no[index].a;
@@ -49,9 +49,9 @@ int main(){
         }
         index++;
     }
-    index--;
-    while(index++ != n-1){
+    while(index < n){
         res += no[index].b;
+        index++;
     }
     cout<<res;
     return 0;

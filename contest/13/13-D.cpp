@@ -13,16 +13,13 @@ int main(){
     for(int i = 0; i<r;i++){
         long a,b;
         scanf("%ld %ld",&a,&b);
-        if(c[a-1]>c[b-1]){
-            c[a-1] = c[b-1];
-        }
-        if(b>a){
-            for(long j = a;j<b-1;j++){
-                c[j] = c[j]-1;
+        if(a > b){
+            for(int i = a-2;i>b-1;i--){
+                c[i]--;
             }
         }else{
-            for(long j = a-2;j>b-1;j--){
-                c[j] = c[j]-1;
+            for(int i = a;i<b-1;i++){
+                c[i]--;
             }
         }
     }
