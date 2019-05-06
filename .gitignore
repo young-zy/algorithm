@@ -1,3 +1,14 @@
+*
+# WhiteList
+!*/
+!*.c
+!*.cpp
+!*.cxx
+!*.cc
+!*.h
+!Makefile
+!.gitignore
+
 # Prerequisites
 *.d
 
@@ -32,4 +43,5 @@
 *.out
 *.app
 *.bin
+
 data_structure/1712480238.rar
