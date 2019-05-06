@@ -21,9 +21,9 @@ int main(){
         d[a][b] = 1;
         d[b][a] = 1;
     }
-    for(int i = 0; i< n; i++){
-        for(int j = 0; j<n;j++){
-            for(int k = 0; k < n; k++){
+    for(int k = 0; k< n; k++){
+        for(int i = 0; i<n;i++){
+            for(int j = 0; j < n; j++){
                 if(d[i][j] > d[i][k] + d[k][j]){
                     d[i][j] = d[i][k] + d[k][j];
                 }
