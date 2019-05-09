@@ -17,7 +17,7 @@ struct segtree{
     //l,r 为线段端点
 
     void update(int t, int l, int r);                   //更新
-    void inc_seg(int t, int l0,int r0,int l, int r);    //
+    void inc_seg(int t, int l0,int r0,int l, int r);    
     void dec_seg(int t,int l0,int r0,int l,int r);      //用于加入边
     int seg_len(int t,int l0,int r0,int l, int r);      //求长度
 

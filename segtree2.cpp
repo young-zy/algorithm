@@ -92,19 +92,18 @@ int main(){
     {
         cin>>a[i];
     }
-    build(1,1,n);
-    for (long long i = 0; i < m; i++)
-    {
+    build(1,1,n);       //构建树
+    for (long long i = 0; i < m; i++){
         int type;
         cin>>type;
         if(type == 1){
             long long x,y,k;
             cin>>x>>y>>k;
-            update(1,x,y,1,n,k);
+            update(1,x,y,1,n,k);                //更新
         }else{
             long long x,y;
             cin>>x>>y;
-            cout<<query(x,y,1,n,1)<<endl;
+            cout<<query(x,y,1,n,1)<<endl;       //查询
         }
     }
     
