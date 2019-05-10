@@ -40,7 +40,9 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-            }
+            },
+            "cppStandard": "c++14",
+            "cStandard": "c99"
         },
         {
             "name": "Win32",
