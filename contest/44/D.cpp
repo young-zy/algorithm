@@ -90,6 +90,8 @@ class Segtree{
             upward_update(p);
         }
 
+        
+
         long long query(long long l0,long long r0,long long l, long long r,long long p){
             //l0,r0 为需要更改的区间范围
             //l,r   为当前所在的区间范围
