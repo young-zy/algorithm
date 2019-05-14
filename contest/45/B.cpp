@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define endl "\n"
 #define INF 0x3f3f3f3f
-#pragma comment(linker, "/STACK:1024000000")
+#pragma comment(linker, "/STACK:1024000000,1024000000")
 
 using namespace std;
 
@@ -50,5 +50,4 @@ int main(){
 		cout<<"No";
 	}
 	return 0;
-    return 0;
 }
