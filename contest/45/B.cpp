@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define endl "\n"
 #define INF 0x3f3f3f3f
-#pragma comment(linker, /STACK:1024000000,1024000000)
+#pragma comment(linker, "/STACK:1024000000,1024000000")
 
 using namespace std;
 
@@ -14,6 +14,7 @@ int main(){
     cin.tie(NULL);
     int n,m;
 	cin>>n>>m;
+    int e[n][m];
 	long long count = 0;
 	long long count2 = 0;
 	for(int i = 0; i< n; i ++){
@@ -50,5 +51,4 @@ int main(){
 		cout<<"No";
 	}
 	return 0;
-    return 0;
 }
