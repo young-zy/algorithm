@@ -14,7 +14,6 @@ int main(){
     cin.tie(NULL);
     int n,m;
 	cin>>n>>m;
-    int e[n][m];
 	long long count = 0;
 	long long count2 = 0;
 	for(int i = 0; i< n; i ++){
