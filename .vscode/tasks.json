@@ -19,6 +19,21 @@
             }
         },
         {
+            "label": "Compile *nix",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "${fileDirname}/${fileBasenameNoExtension}.c"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
             "label": "Compile c++",
             "type": "shell",
             "command": "g++",
