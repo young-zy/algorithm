@@ -1,67 +1,91 @@
-//线段树
-
 #include<bits/stdc++.h>
 #define endl "\n"
-
-#define maxn 200000
+#define INF 0x3f3f3f3f
+#define Maxn 200005
 
 using namespace std;
 
-int a[2000005];
+class Segtree{
+    public:
+        long long n;
+        long long ans[Maxn * 4];        //?
+        long long a[Maxn];              //????
+        long long tag[Maxn * 4];        //???
 
+        inline long long left_son(long long p){
+            return p << 1;          //p*2
+        }
 
+        inline long long right_son(long long p){
+            return p << 1 | 1;      //p * 2 + 1
+        }
 
-int tree[maxn << 2];
-int tag[maxn << 2];
+        inline void upward_update(long long p){         //????
+            ans[p] = ans[left_son(p)] + ans[right_son(p)];
+        }
 
-int n = 0;
+        inline void build(long long p, long long l,long long r){       //??
+            tag[p] = 0;                                     //???????0
+            if(l == r){                                     //?????????????????
+                ans[p] = a[l];
+                return;
+            }
+            long long mid = (l + r) >> 1;                   //????
+            build(left_son(p),l,mid);                       //????
+            build(right_son(p), mid+1,r);                   //????
+            upward_update(p);                               //????p
+        }
+        inline void tag_update(long long p, long long l,long long r,long long k){
+            tag[p] += k;                                //??????????????k??????
+            ans[p] += k * (r - l + 1);                  //????????
+        }
+        inline void downward_update(long long p,long long l,long long r){
+            long long mid = (l + r) >> 1;
+            tag_update(left_son(p),l,mid,tag[p]);       //???????tag??
+            tag_update(right_son(p),mid+1,r,tag[p]);    //???????tag??
+            tag[p] = 0;                                 //??????
+        }
+        inline void update(long long p,long long l0, long long r0, long long l, long long  r,long long k){
+            //l0,r0 ??????????
+            //l,r   ??????????
+            long long mid = (l + r) >> 1;
+            if(l0 <= l && r <= r0){         //??????
+                tag_update(p,l,r,k);        
+                return;
+            }
+            downward_update(p,l,r);         //????????????
+            if(l0 <= mid){
+                update(left_son(p),l0,r0,l,mid,k);
+            }
+            if(r0 > mid){
+                update(right_son(p),l0,r0,mid+1,r,k);
+            }
+            upward_update(p);
+        }
 
-int push_up(int p){
-    tree[p] = __gcd(tree[p<<1+1],tree[p<<1+2]);
-}
+        long long query(long long l0,long long r0,long long l, long long r,long long p){
+            //l0,r0 ??????????
+            //l,r   ??????????
+            long long mid = (l + r) >> 1;
+            long long res = 0;
+            if(l0 <= l && r0 >=r){              //?????????????
+                return ans[p];          
+            }
+            downward_update(p,l,r);             //???????
+            if(l0 <= mid){
+                res += query(l0,r0,l,mid,left_son(p));
+            }
+            if(r0 > mid){
+                res += query(l0,r0,mid+1,r,right_son(p));
+            }
+            return res;
+        }
 
-void build_tree(int l, int r,int p){
-    if(l == r){
-        tree[p] = a[l];
-    }else{
-        int mid = (l + r) >>1;
-        build_tree(l,mid,p<<1+1);
-        build_tree(mid+1,r,p<<1+2);
-        push_up(p);
-    }
-}
-
-void update(int il,int ir,int l, int r,int p){
-    if(il <= l && ir <=r){
-
-    }
-}
-
-
-
-void push_down(int p, int l, int r){
-    int mid = (l + r) >> 1;
-
-}
+};
 
 int main(){
-    // ios_base::sync_with_stdio(false);
-    // cin.tie(NULL);
-    int n;
-    cin>>n;
-    for(int i = 0; i<n; i ++){
-        cin>>a[i];
-    }
-    int q;
-    cin>>q;
-    for(int i = 0; i< q; i++){
-        int flag,l,r;
-        cin>>flag>>l>>r;
-        if(flag == 0){
-
-        }else{
-
-        }
-    }
+    //ios_base::sync_with_stdio(false);
+    //cin.tie(NULL);
+    
     return 0;
 }
