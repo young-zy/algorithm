@@ -7,7 +7,7 @@
 typedef int Elemtype;
 
 struct Data{
-    Elemtype num;
+    char num;
 };
 
 struct Node{
@@ -24,17 +24,27 @@ int temp_data[10000000];
 
 struct Node* build_tree(int root){
     struct Node *res = (struct Node*)malloc(sizeof(struct Node) );
-    if(root <<1 != INF){
+    res->data = (struct Data*)malloc(sizeof(struct Data));
+    res->data->num = temp_data[root];
+    if(temp_data[root <<1 ]!= INF){
         res->left_child = build_tree(root<<1);
+    }else{
+        res->left_child = NULL;
     }
-    if(root<<1 | 1 != INF){
+    if(temp_data[root<<1 | 1 ]!= INF){
         res->right_child = build_tree(root << 1 | 1);
+    }else{
+        res->right_child = NULL;
     }
 }
 
 void swap_child(struct Node * node){
-    swap_child(node->left_child);
-    swap_child(node->right_child);
+    if(node->left_child != NULL){
+        swap_child(node->left_child);
+    }
+    if(node->right_child != NULL){
+        swap_child(node->right_child);
+    }
     struct Node * temp;
     temp = node->left_child;
     node->left_child = node->right_child;
@@ -42,7 +52,7 @@ void swap_child(struct Node * node){
 };
 
 void pre_order(struct Node * node){
-    printf("%d ",node->data->num);
+    printf("%c ",node->data->num);
     if(node->left_child != NULL){
         pre_order(node->left_child);
     }
@@ -57,12 +67,14 @@ int main(){
     scanf("%d",&num);
     for(int i = 0; i<num;i++){
         int a,b;
-        scanf("%d %d",&a,&b);
+        scanf("%d %C",&a,&b);
         temp_data[a] = b;
     }
     struct binary_tree tree;
     tree.head = build_tree(1);
+    pre_order(tree.head);
     swap_child(tree.head);
+    printf("\n");
     pre_order(tree.head);
 }
 
