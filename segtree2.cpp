@@ -81,7 +81,7 @@ class Segtree{
             }
             return res;
         }
-
+        
 };
 
 int main(){
