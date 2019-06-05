@@ -12,25 +12,6 @@ int main(){
         int flag = 0;
         map<char,int> ma;
         for(int i = 0; i< a.length();i++){
-            // if(flag == 0 && (a[i] == 'S' || a[i] == 's')){
-            //     flag++;
-            // }else{
-            //     flag = 0;
-            // }
-            // if(flag == 1 && (a[i] == 'i' || a[i] == 'I')){
-            //     flag++;
-            // }else{
-            //     flag = 0;
-            // }
-            // if(flag == 2 && (a[i] = 'w' || a[i] =='W')){
-            //     flag++;
-            // }else{
-            //     flag = 0;
-            // }
-            // if(flag == 3){
-            //     flag = 0;
-            //     cout<<"SIW";
-            // }
             if(a[i] >='a' && a[i] <='z'){
                 a[i] = a[i]+'A'-'a'; 
             }

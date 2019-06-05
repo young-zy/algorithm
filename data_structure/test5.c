@@ -1,9 +1,11 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-#define Maxn 100
+#define Maxn 100005
 
 typedef int Elemtype;
+
+int visited[Maxn];
 
 struct ArcNode{ //边
     int adjvex;
@@ -49,8 +51,13 @@ struct Graph * Init_Graph(int a,int b){  //a：顶点数 b：边数
     return res;
 }
 
-void dfs(struct Graph *g){
-
+void dfs(struct Graph *g,int num){
+    if(visited[num] == 1 ){
+        return;
+    }
+    printf("%d",g->verticles->data);
+    
+    
 }
 
 void bfs(struct Graph *g){
