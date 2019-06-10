@@ -56,12 +56,12 @@ void dfs(struct Graph *g,int num){
         return;
     }
     printf("%d",g->verticles->data);
-    
+    //UNDONE
     
 }
 
-void bfs(struct Graph *g){
-    
+void bfs(struct Graph *g,int num){
+    //UNDONE
 }
 
 int main(){

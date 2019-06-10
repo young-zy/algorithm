@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define Maxn 100005
+#define Maxn 105
 #define INF 0x3f3f3f3f
 
 void swap(int *a, int *b){
@@ -67,13 +67,18 @@ void insert(struct heap* he,int num){
 
 void heap_sort(int *a,int length){
     struct heap hea;
-    struct heap* he;
+    hea.length = 0;
+    memset(hea.a,INF,sizeof(hea.a));
+    struct heap* he = &hea;
     for(int i = 0;i<length;i++){
         insert(he,a[i]);
     }
+    int i = 0;
     while(he->length > 0){
-        printf("%d ",top(he));
-        top(he);
+        //printf("%d ",top(he));
+        a[i] = top(he);
+        pop(he);
+        i++;
     }
 }
 
@@ -94,17 +99,34 @@ void insertion_sort(int *a,int length){
 
 void selection_sort(int *a,int length){
     for(int i = 0; i<length-1;i++){
-        int maxindex = 0;
+        int minindex = i;
         for(int j = i;j<length;j++){
-            if(a[maxindex] < a[j]){
-                maxindex = j;
+            if(a[minindex] > a[j]){
+                minindex = j;
             }
         }
-        swap(&a[i],&a[maxindex]);
+        swap(&a[i],&a[minindex]);
     }
 }
 
 int main(){
+    int a[] = {7,6,5,4,3,2,1};
+    int b[] = {7,6,5,4,3,2,1};
+    int c[] = {7,6,5,4,3,2,1};
+    heap_sort(a,7);
+    for(int i = 0; i< 7; i++){
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+    insertion_sort(b,7);
+    for(int i = 0; i< 7; i++){
+        printf("%d ",b[i]);
+    }
+    printf("\n");
+    selection_sort(c,7);
+    for(int i = 0; i< 7; i++){
+        printf("%d ",c[i]);
+    }
+    printf("\n");
     return 0;
-
 }

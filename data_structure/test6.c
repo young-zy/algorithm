@@ -29,5 +29,5 @@ int linear_search(int *a,int length,int target){
 
 int main(){
 
-
+    return 0;
 }
