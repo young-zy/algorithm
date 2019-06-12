@@ -6,8 +6,6 @@ struct Data{
     long long x;
 };
 
-
-
 struct node * head1;
 struct node * head2;
 

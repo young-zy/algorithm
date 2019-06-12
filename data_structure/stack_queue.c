@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 #include<math.h>
 
 typedef int Elemtype;
@@ -26,7 +27,7 @@ struct Queue{
 
 struct Stack * Stack(){
     struct Stack* ans = (struct Stack *)malloc(sizeof(struct Stack));
-    ans->head = (struct Data*)malloc(sizeof(struct Data));
+    ans->head = (struct Node*)malloc(sizeof(struct Node));
     ans->head->data = NULL;
     ans->size = 0;
     ans->head->next = NULL;
@@ -35,13 +36,15 @@ struct Stack * Stack(){
 
 struct Queue * Queue(){
     struct Queue* ans = (struct Queue *)malloc(sizeof(struct Queue));
-    ans->head = (struct Data*)malloc(sizeof(struct Data));
+    ans->head = (struct Node*)malloc(sizeof(struct Node));
     ans->head->data = NULL;
+    ans->head->next = NULL;
+    ans->back = ans->head;
     ans->size = 0;
     return ans;
 }
 
-void pop(struct Stack* st){
+void stack_pop(struct Stack* st){
     if(st->size > 0){
         struct Node* temp = st->head->next;
         st->head->next = temp->next;
@@ -54,7 +57,7 @@ void pop(struct Stack* st){
     
 }
 
-void pop(struct Queue* qu){
+void queue_pop(struct Queue* qu){
     if(qu->size > 0){
         struct Node *temp = qu->head->next;
         qu->head->next = temp->next;
@@ -62,12 +65,12 @@ void pop(struct Queue* qu){
         free(temp);
         qu->size--;
         if(qu->size == 0){
-            qu->back = qu->head->next;
+            qu->back = qu->head;
         }
     }
 }
 
-void push(struct Stack *st,Elemtype num){
+void stack_push(struct Stack *st,Elemtype num){
     struct Node *temp = st->head->next->next;
     struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
     newnode->next = temp;
@@ -77,7 +80,7 @@ void push(struct Stack *st,Elemtype num){
     st->size++;
 }
 
-void push(struct Queue *qu, Elemtype num){
+void queue_push(struct Queue *qu, Elemtype num){
     struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
     newnode->next = NULL;
     newnode->data = (struct Data *)malloc(sizeof(struct Data));
@@ -87,12 +90,28 @@ void push(struct Queue *qu, Elemtype num){
     qu->size++;
 }
 
-Elemtype Stack_top(struct Stack *st){
+Elemtype top(struct Stack *st){
     return st->head->next->data->num;
 }
 
-Elemtype Queue_front(struct Queue *qu){
+Elemtype front(struct Queue *qu){
     return qu->head->next->data->num;
+}
+
+int queue_isempty(struct Queue * qu){
+    if(qu->size == 0){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+int stack_isempty(struct Stack * st){
+    if(st->size == 0){
+        return 1;
+    }else{
+        return 0;
+    }
 }
 
 int main(){

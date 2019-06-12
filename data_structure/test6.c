@@ -28,6 +28,9 @@ int linear_search(int *a,int length,int target){
 
 
 int main(){
-
+    int a[10] = {1,2,3,4,5,6,7,8,9,10};
+    int b[10] = {5,3,7,2,4,1,10,8,6,9};
+    printf("%d\n",linear_search(b,10,1));
+    printf("%d\n",binary_search(a,0,9,11));
     return 0;
 }
