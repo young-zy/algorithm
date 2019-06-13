@@ -71,7 +71,8 @@ void queue_pop(struct Queue* qu){
 }
 
 void stack_push(struct Stack *st,Elemtype num){
-    struct Node *temp = st->head->next->next;
+    struct Node *temp;
+    temp = st->head->next;
     struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
     newnode->next = temp;
     newnode->data = (struct Data *)malloc(sizeof(struct Data));
@@ -115,6 +116,23 @@ int stack_isempty(struct Stack * st){
 }
 
 int main(){
-    
+    struct Stack *st = Stack();
+    for(int i = 1; i<=10 ; i++){
+        stack_push(st,i);
+    }
+    for(int i = 1; i<=10;i++){
+        printf("%d ",top(st));
+        stack_pop(st);
+    }
+    printf("\n");
+    struct Queue *qu = Queue();
+    for(int i = 1; i<=10 ; i++){
+        queue_push(qu,i);
+    }
+    for(int i = 1; i<=10;i++){
+        printf("%d ",front(qu));
+        queue_pop(qu);
+    }
+
     return 0;
 }
