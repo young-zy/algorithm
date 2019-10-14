@@ -73,7 +73,12 @@
 			"tuple": "cpp",
 			"typeindex": "cpp",
 			"typeinfo": "cpp",
-			"utility": "cpp"
+			"utility": "cpp",
+			"algorithm": "cpp",
+			"iterator": "cpp",
+			"map": "cpp",
+			"memory_resource": "cpp",
+			"set": "cpp"
 		}
 	}
 }

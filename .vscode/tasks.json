@@ -42,7 +42,12 @@
                 "--std=c++11",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\"",
+                "-static-libgcc",
+                "-W",
+                "-I",
+                "--stack=1099511627776",
                 "${fileDirname}/${fileBasenameNoExtension}.cpp"
+                
             ],
             "group": {
                 "kind": "build",

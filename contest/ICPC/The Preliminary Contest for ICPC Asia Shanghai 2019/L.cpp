@@ -1,29 +1,12 @@
-#include<bits/stdc++.h>
-#define endl "\n"
-#define INF 0x3f3f3f3f
-
-using namespace std;
-
-int l[1005],r[1005];
-
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;
-    cin>>t;
-    for(int te = 1; te<=t ;te++){
-        int n,m;
-        cin>>n>>m;
-        for(int i = 0; i<m ; i++){
-            cin>>l[i]>>r[i];#include <bits/stdc++.h>
-//#define int long long
+#include <bits/stdc++.h>
+#define int long long
 #define sc(a) scanf("%lld",&a)
 #define scc(a,b) scanf("%lld %lld",&a,&b)
 #define sccc(a,b,c) scanf("%lld %lld %lld",&a,&b,&c)
 #define schar(a) scanf("%c",&a)
 #define pr(a) printf("%lld",a)
 #define fo(i,a,b) for(int i=a;i<b;++i)
-#define re(i,a,b) for(register int i=a;i<=b;++i)
+#define re(i,a,b) for(int i=a;i<=b;++i)
 #define rfo(i,a,b) for(int i=a;i>b;--i)
 #define rre(i,a,b) for(int i=a;i>=b;--i)
 #define prn() printf("\n")
@@ -58,7 +41,7 @@ typedef priority_queue<int,vector<int>,greater<int> > mnpq;
 typedef priority_queue<pii> mxpqii;
 typedef priority_queue<pii,vector<pii>,greater<pii> > mnpqii;
 const int maxn=1000005;
-const int inf=0x3f3f3f3f;
+const int inf=0x3f3f3f3f3f3f3f3f;
 const int MOD=100000007;
 const db eps=1e-10;
 int qpow(int a,int b){int tmp=a%MOD,ans=1;while(b){if(b&1){ans*=tmp,ans%=MOD;}tmp*=tmp,tmp%=MOD,b>>=1;}return ans;}
@@ -89,32 +72,34 @@ inline void write(int x){
     putchar(x%10+48);
 }
 
-int t,n,m,l,r;
-mpii mp;
-typedef map<int,int>::iterator it;
+int t,n,b,ans[11][maxn];
+int s(int n,int b){
+	int res=0;
+	while(n){
+		res+=n%b;
+		n/=b;
+	}
+	return res;
+}
 
 signed main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0),cout.tie(0);
-    t=read();
-    re(Case,1,t){
-		n=read(),m=read();
-		mp.clear();
-		re(i,1,m) l=read(),r=read(),mp[l]++,mp[r+1]++;
-		int now=0,res=0;
-		for(it i=mp.begin();i!=mp.end();++i){
-			now+=i->snd;
-			if(now%2!=0){
-				it j=i; j++;
-				if(j!=mp.end()) res+=j->fst-i->fst;
-			}
+    re(i,2,10){
+		re(j,1,maxn-5){
+			ans[i][j]=(ans[i][j-1]+s(j,i))%MOD;
+			ans[i][j]%=MOD;
 		}
-		printf("Case #%d: %d\n",Case,res);
+	}
+    sc(t);
+    re(Case,1,t){
+		scc(n,b);
+		printf("Case #%lld: %lld\n",Case,ans[b][n]%MOD);
 	}
     return 0;
 }
-        }
-        
-    }
-    return 0;
-}
+/*
+2
+10 10
+8 2
+*/

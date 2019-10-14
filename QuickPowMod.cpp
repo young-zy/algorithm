@@ -2,10 +2,9 @@
 
 using namespace std;
 
-int main(){
-    long a,b,c;  // a ^ b mod c
-    cin>>a>>b>>c;
-    long ans = 1;
+long long quickpowmod(long long a,long long b,long long c){
+    // a ^ b mod c
+    long long ans = 1;
     a %= c;
     while(b){
         if(b & 1){
@@ -13,8 +12,6 @@ int main(){
         }
         b >>= 1;
         a = (a*a) % c;
-
     }
-    cout<<ans;
-    return 0;
+    return ans;
 }
