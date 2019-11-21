@@ -79,6 +79,7 @@
 			"map": "cpp",
 			"memory_resource": "cpp",
 			"set": "cpp"
-		}
+		},
+		"C_Cpp.intelliSenseCacheSize": 1024
 	}
 }
