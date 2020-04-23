@@ -15,3 +15,6 @@ long long quickpowmod(long long a,long long b,long long c){
     }
     return ans;
 }
+int main(){
+    cout<<quickpowmod(113,19,221);
+}

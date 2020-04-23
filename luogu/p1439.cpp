@@ -6,6 +6,7 @@ using namespace std;
 
 int a[100005],f[100005];
 
+//最长公共子序列
 
 int main(){
     ios_base::sync_with_stdio(false);
